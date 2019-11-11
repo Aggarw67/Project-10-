@@ -1,0 +1,38 @@
+# Project 10 Solutions
+
+# Student Name: Shiveeka Aggarwal
+
+# Peer Collaborators (if any) and nature of the collaboration None
+# TA help sought (if any) None
+# Online resources used (if any) and weblink for location of resources None
+
+# 1a. (2 pt)
+# Comment about method of solution: Used
+Solution itself: cat /class/datamine/data/election/*.txt | 'cut -d, f14, 15 > datenum.txt
+# Output from the solution: Helps find the text file and the total
+
+# 1b. (1 pt)
+# Comment about method of solution: ........
+Solution itself: grep -v TRANSACTIONS datenum.txt > newdatenum.txt
+# Output from the solution ........
+
+# 2a. (1 pts)
+# Comment about method of solution: ........
+Solution itself: Date <- read.delim("newdatenum.txt", sep = "|", colClasses = c('character', 'integer'), header = F)
+# Output from the solution ........
+
+# 2b. (2 pts)
+# Comment about method of solution: ........
+Solution itself: Date$col3check <- as.date(Date$X10031979, "%m%d%Y)
+# Output from the solution ........
+
+# 3a. (2 pt)
+# Comment about method of solution: ........
+Solution itself: Setcommand <- subset(Date, colClasses > 1970-10-01)
+# plot(table(Setcommand$colClasses))
+# Output from the solution ........
+
+# 3b. (2 pt)
+# Comment about method of solution: ........
+Solution itself:  plot(tapply(Setcommand$X400, Setcommand@col3check, sum))
+# Output from the solution ........
